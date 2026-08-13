@@ -12,7 +12,7 @@ export default defineConfig({
   ],
 
   use: {
-    baseURL: process.env.BASE_URL,
+    baseURL: process.env.BASE_URL || 'https://www.saucedemo.com',
     screenshot: 'only-on-failure',
     trace: 'on-first-retry'
   }
