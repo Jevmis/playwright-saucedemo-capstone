@@ -178,8 +178,11 @@ Michael Jackson Ndueso
 QA Engineer | Computer Engineer
 
 🌐 Portfolio: https://michaeljndueso.is-a.dev
+
 💼 LinkedIn: https://linkedin.com/in/michaeljndueso
+
 💻 GitHub: https://github.com/Jevmis
+
 📧 Email: Michaeljndueso@outlook.com
 
 
