@@ -1,5 +1,9 @@
 # Playwright Saucedemo Capstone
 
+![Playwright Tests](https://github.com/Jevmis/playwright-saucedemo-capstone/actions/workflows/playwright.yml/badge.svg)
+
+End-to-end test automation framework built with Playwright and TypeScript using the Page Object Model (POM).
+
 ## Project Overview
 
 This project is a Playwright end-to-end automation test suite developed for the TestarsQuarter Playwright.JS Cohort Capstone Project.

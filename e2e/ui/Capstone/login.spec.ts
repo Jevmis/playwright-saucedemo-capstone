@@ -1,6 +1,6 @@
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../../pages/LoginPage';
-import users from '../.../../../../utils/test-data/users.json';
+import users from '../../../utils/test-data/users.json';
 
 test.describe('Login Tests', () => {
 
@@ -18,26 +18,30 @@ test.describe('Login Tests', () => {
             // process.env.STANDARD_PASSWORD!
         );
 
-        await loginPage.verifySuccessfulLogin();
+        await expect(page).toHaveURL(/inventory/);
+        await expect(page.locator('.title')).toContainText('Products');
 
     });
 
     test('Invalid Login', async ({ page }) => {
 
-        const loginPage = new LoginPage(page);
+    const loginPage = new LoginPage(page);
 
-        await loginPage.navigate();
+    await loginPage.navigate();
 
-        await loginPage.login(
-            users.invalidUser.username,
-            users.invalidUser.password
+    await loginPage.login(
+        users.invalidUser.username,
+        users.invalidUser.password
+    );
 
-            // process.env.INVALID_USERNAME!,
-            // process.env.INVALID_PASSWORD!
-        );
+    await loginPage.verifyLoginError();
 
-        await loginPage.verifyLoginError();
+    await expect(
+        page.locator('[data-test="error"]')
+    ).toContainText(
+        'Epic sadface: Username and password do not match any user in this service'
+    );
 
-    });
+});
 
 });

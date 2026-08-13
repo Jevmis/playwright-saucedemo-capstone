@@ -31,7 +31,9 @@ test.describe('Checkout Tests', () => {
 
         await checkoutPage.finishCheckout();
 
-        await checkoutPage.verifyOrderSuccess();
+        await expect(page.locator('.complete-header'))
+            .toContainText('Thank you for your order');
+        await expect(page).toHaveURL(/checkout-complete/);
 
     });
 

@@ -19,7 +19,9 @@ test.describe('Products Tests', () => {
 
         await inventoryPage.addBackpackToCart();
 
-        await inventoryPage.verifyItemAddedToCart();
+        await expect(
+            page.locator('.shopping_cart_badge')
+        ).toContainText('1');
 
     });
 
@@ -37,6 +39,10 @@ test.describe('Products Tests', () => {
 
         await inventoryPage.sortLowToHigh();
 
+        await expect(
+            page.locator('[data-test="product-sort-container"]')
+        ).toHaveValue('lohi');
+
         const prices = await page
             .locator('.inventory_item_price')
             .allTextContents();
@@ -44,7 +50,9 @@ test.describe('Products Tests', () => {
         const numericPrices = prices.map(price =>
             Number(price.replace('$', ''))
         );
-        const sortedPrices = [...numericPrices].sort((a, b) => a - b);
+
+        const sortedPrices = [...numericPrices]
+            .sort((a, b) => a - b);
 
         expect(numericPrices).toEqual(sortedPrices);
 
