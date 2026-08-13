@@ -4,11 +4,21 @@
 
 This project is a Playwright end-to-end automation test suite developed for the TestarsQuarter Playwright.JS Cohort Capstone Project.
 
-The automation framework validates core user journeys on the SauceDemo application, including authentication, product interactions, product sorting, and checkout functionality.
+The framework validates critical user journeys on the SauceDemo application, including authentication, product interactions, product sorting, cart management, and checkout functionality.
 
-Application Under Test:
+**Application Under Test (AUT):**
 
 https://www.saucedemo.com
+
+---
+
+## Tech Stack
+
+* Playwright
+* TypeScript
+* Node.js
+* GitHub Actions (CI/CD)
+* Page Object Model (POM)
 
 ---
 
@@ -64,15 +74,6 @@ playwright-saucedemo-capstone
 
 ---
 
-## Technologies Used
-
-* Playwright
-* TypeScript
-* Node.js
-* Page Object Model (POM)
-
----
-
 ## Installation
 
 Clone the repository:
@@ -117,6 +118,8 @@ INVALID_USERNAME=locked_out_user
 INVALID_PASSWORD=wrong_password
 ```
 
+Alternatively, copy the provided `.env.example` file and update the values as needed.
+
 ---
 
 ## Running Tests
@@ -133,7 +136,7 @@ Run login tests only:
 npx playwright test login.spec.ts
 ```
 
-Run products tests only:
+Run product tests only:
 
 ```bash
 npx playwright test products.spec.ts
@@ -165,15 +168,45 @@ Screenshots, traces, and execution reports are automatically generated for faile
 
 ---
 
+## Test Execution Evidence
+
+### Test Summary
+
+![Test Summary](./screenshots/test-summary.png)
+
+### Playwright HTML Report
+
+![Playwright Report](./screenshots/show-report.png)
+
+---
+
+## CI/CD
+
+GitHub Actions is configured to automatically:
+
+* Install project dependencies
+* Install Playwright browsers
+* Execute the test suite
+* Generate and upload Playwright reports
+
+The workflow runs automatically on:
+
+* Push events
+* Pull Requests
+
+---
+
 ## Design Pattern
 
-This framework follows the Page Object Model (POM) design pattern to improve maintainability, readability, and reusability of test code.
+This framework follows the **Page Object Model (POM)** design pattern to improve maintainability, readability, scalability, and reusability of test code.
 
 ---
 
 ## Author
 
-Michael Jackson Ndueso
+**Michael Jackson Ndueso**
+
+QA Engineer | Computer Engineer
 
 QA Engineer | Computer Engineer
 
@@ -185,5 +218,6 @@ QA Engineer | Computer Engineer
 
 📧 Email: Michaeljndueso@outlook.com
 
+---
 
-Playwright.JS Cohort 2026 – TestarsQuarter Initiative
+**Playwright.JS Cohort 2026 – TestarsQuarter Initiative**
